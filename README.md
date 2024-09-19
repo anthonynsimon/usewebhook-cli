@@ -46,7 +46,7 @@ $ usewebhook <webhook-URL>  -r <request-ID> -f http://localhost:8080/your-endpoi
 ```
 
 
-## Building from source
+## Build from source
 
 1. Ensure you have Go installed on your system.
 2. Clone the repository:
