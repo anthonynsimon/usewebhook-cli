@@ -1,6 +1,6 @@
 # UseWebhook CLI
 
-CLI for [UseWebhook](https://usewebhook.com): a free tool to inspect webhooks from your browser and replay locally.
+CLI for [UseWebhook.com](https://usewebhook.com): a free tool to inspect webhooks from your browser and replay locally.
 
 ## Installation
 
