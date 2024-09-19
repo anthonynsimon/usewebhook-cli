@@ -1,4 +1,4 @@
-// Package main provides the main functionality for the UseWebhook CLI tool.
+// Package main boots the UseWebhook CLI tool.
 package main
 
 import (
@@ -20,7 +20,7 @@ import (
 	"github.com/spf13/cobra"
 )
 
-// Global variables that can be set via LDFLAGS during build
+// Global variables that can be set via LDFLAGS during build time
 var (
 	// Version is set during release
 	Version          = "dev"
@@ -317,7 +317,7 @@ func createRootCommand() *cobra.Command {
 
 	rootCmd := &cobra.Command{
 		Use:     "usewebhook <webhook-ID or URL>",
-		Short:   "Listen and forward requests to your usewebhook.com endpoint",
+		Short:   "Capture and inspect webhooks from your browser. Replay them on localhost.",
 		Version: Version,
 		Run: func(cmd *cobra.Command, args []string) {
 			runRootCommand(cmd, args, &appConfig)
