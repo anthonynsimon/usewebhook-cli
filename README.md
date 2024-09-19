@@ -4,7 +4,7 @@ CLI for [UseWebhook](https://usewebhook.com): a free tool to inspect webhooks fr
 
 ## Installation
 
-For convenience, here's an automated install script:
+Use the automated install script:
 
 ```
 curl -sSL https://raw.githubusercontent.com/anthonynsimon/usewebhook-cli/main/install.sh | bash
