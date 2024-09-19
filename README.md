@@ -1,6 +1,6 @@
 # UseWebhook CLI
 
-[UseWebhook](https://usewebhook.com/) let's you capture and inspect webhooks from your browser. You can forward incoming webhooks to localhost, or replay from history.
+[UseWebhook](https://usewebhook.com/) is a tool to capture and inspect webhooks from your browser. You can forward incoming webhooks to localhost, or replay individual requests from history.
 
 - ⚡️ Receive webhooks without a server
 - 🔍 Inspect and diff incoming requests
@@ -11,13 +11,13 @@ It's free to use - no sign up required. Just send requests to [your unique webho
 
 ## Installation
 
-The easiest way is using the automated install script:
+The easiest way to install is using the automated script:
 
 ```
 curl -sSL https://usewebhook.com/install.sh | bash
 ```
 
-It will detect your OS and architecture, download the appropiate release and add it to your `/usr/local/bin`.
+It will detect your OS and architecture, download the corresponding executable, and add it to your PATH.
 
 Alternatively, you can download the binary for your operating system from the [releases page](https://github.com/anthonynsimon/usewebhook-cli/releases), or [build from source](#build-from-source) if you'd like.
 
