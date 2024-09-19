@@ -2,7 +2,7 @@
 
 CLI for [UseWebhook.com](https://usewebhook.com): inspect webhooks from your browser and replay locally.
 
-![Inspect and replay webhooks with UseWebhook](https://github.com/user-attachments/assets/f89dc229-0921-47e9-b384-45002f090b6b)
+![UseWebhook logo](https://github.com/user-attachments/assets/fc2d80a2-4d9b-4e9e-92b5-2bd1af8e2983)
 
 ## Installation
 
