@@ -6,15 +6,15 @@ CLI for [UseWebhook.com](https://usewebhook.com): inspect webhooks from your bro
 
 ## Installation
 
-The easiest way to install is using the automated install script:
+The easiest way is using the automated install script:
 
 ```
-curl -sSL https://raw.githubusercontent.com/anthonynsimon/usewebhook-cli/main/install.sh | bash
+curl -sSL https://usewebhook.com/install.sh | bash
 ```
 
 It will detect your OS and architecture, download the appropiate release and add it to your `/usr/local/bin`.
 
-Alternatively, you can download the binary for your operating system from the [releases page](https://github.com/yourusername/usewebhook-cli/releases), or [build from source](#build-from-source) if you'd like.
+Alternatively, you can download the binary for your operating system from the [releases page](https://github.com/anthonynsimon/usewebhook-cli/releases), or [build from source](#build-from-source) if you'd like.
 
 ## Usage
 
