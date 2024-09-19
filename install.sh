@@ -2,36 +2,36 @@
 
 set -e
 
-# Detect the operating system and architecture
-OS=$(uname -s)
-ARCH=$(uname -m)
-RELEASE_URL="https://github.com/anthonynsimon/usewebhook-cli/releases/latest/download"
+# Detect OS
+os_out=`uname -s`
+case $os_out in
+  Darwin*)  os="darwin"; dest=/usr/local/bin/ ;;
+  Linux*)   os="linux"; dest=/usr/bin/ ;;
+  FreeBSD*) os="freebsd"; dest=/usr/local/bin/ ;;
+  *)        echo "unsupported OS ${os_out}" && exit 1 ;;
+esac
 
-# Download the latest release
-if [ "$OS" == "Linux" ]; then
-    if [ "$ARCH" == "x86_64" ]; then
-        curl -sSL $RELEASE_URL/usewebhook_linux_x64.tar.gz -o usewebhook.tar.gz
-        tar -xzf usewebhook.tar.gz
-        mv usewebhook /usr/local/bin/
-        rm usewebhook.tar.gz
-    elif [ "$ARCH" == "i686" ]; then
-        curl -sSL $RELEASE_URL/usewebhook_linux_x86.tar.gz -o usewebhook.tar.gz
-        tar -xzf usewebhook.tar.gz
-        mv usewebhook /usr/local/bin/
-        rm usewebhook.tar.gz
-    else
-        echo "Unsupported architecture: $ARCH" >&2
-        exit 1
-    fi
-elif [ "$OS" == "Darwin" ]; then
-    curl -sSL $RELEASE_URL/usewebhook_mac.tar.gz -o usewebhook.tar.gz
-    tar -xzf usewebhook.tar.gz
-    mv usewebhook /usr/local/bin/
-    rm usewebhook.tar.gz
-else
-    echo "Unsupported operating system: $OS" >&2
-    exit 1
-fi
+# Detect architecture
+arch_out=`uname -m`
+case $arch_out in
+  amd64*)   architecture="amd64" ;;
+  x86_64*)  architecture="amd64" ;;
+  arm64*)   architecture="arm64" ;;
+  aarch64*) architecture="arm64" ;;
+  arm*)     architecture="arm" ;;
+  *)        echo "unsupported architecture ${arch_out}" && exit 1 ;;
+esac
 
-chmod +x /usr/local/bin/usewebhook
-echo "UseWebhook CLI has been installed successfully."
+# Prepare platform specific vars
+platform="${os}_${architecture}"
+release_filename="usewebhook_${platform}.tar.gz"
+download_url="https://github.com/anthonynsimon/usewebhook-cli/releases/latest/download/${release_filename}"
+
+echo "Detected platform $platform and arch $architecture"
+echo "Installing latest release..."
+
+curl -sOL $download_url
+sudo tar xvf $release_filename -C $dest
+
+echo "UseWebhook CLI has been installed successfully!"
+usewebhook --help

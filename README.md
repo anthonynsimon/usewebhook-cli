@@ -4,11 +4,13 @@ CLI for [UseWebhook](https://usewebhook.com): a free tool to inspect webhooks fr
 
 ## Installation
 
-Use the automated install script:
+The easiest way to install is using the automated install script:
 
 ```
 curl -sSL https://raw.githubusercontent.com/anthonynsimon/usewebhook-cli/main/install.sh | bash
 ```
+
+It will detect your OS and architecture, download the appropiate release and add it to your `/usr/local/bin`.
 
 Alternatively, you can download the binary for your operating system from the [releases page](https://github.com/yourusername/usewebhook-cli/releases), or [build from source](#build-from-source) if you'd like.
 
