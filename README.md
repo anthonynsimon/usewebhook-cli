@@ -17,7 +17,7 @@ curl -sSL https://raw.githubusercontent.com/anthonynsimon/usewebhook-cli/main/in
 To use UseWebhook CLI, run the following command:
 
 ```
-# Start listening for requests (will create a new webhook)
+# Create a new webhook and start listening
 $ usewebhook
 
 # Listen for requests to a specific webhook
@@ -25,25 +25,6 @@ $ usewebhook <webhook-ID or URL>
 
 # Forward requests to a local endpoint
 $ usewebhook <webhook-ID or URL> -f http://localhost:8080/your-destination-endpoint
-```
-
-
-Show help:
-
-```
-$ usewebhook --help
-
-Listen and forward requests to your usewebhook.com endpoint
-
-Usage:
-  usewebhook <webhook-ID or URL> [flags]
-
-Flags:
-  -f, --forward-to string   forward incoming requests to the provided URL (optional)
-  -h, --help                help for usewebhook
-  -l, --log-details         log full request details (default: false)
-  -r, --request string      the request ID to fetch (optional)
-  -v, --version             version for usewebhook
 ```
 
 ## Building from source
