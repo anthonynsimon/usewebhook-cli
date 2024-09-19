@@ -1,6 +1,6 @@
 # UseWebhook CLI
 
-CLI for [UseWebhook.com](https://usewebhook.com): a free tool to inspect webhooks from your browser and replay locally.
+CLI for [UseWebhook.com](https://usewebhook.com): inspect webhooks from your browser and replay locally.
 
 ## Installation
 
@@ -21,8 +21,8 @@ Create a new webhook and start listening:
 ```bash
 $ usewebhook
 
-> Dashboard URL: https://usewebhook.com?id=example
-> Listening at: https://usewebhook.com/example
+> Dashboard URL: https://usewebhook.com/?id=123
+> Listening at: https://usewebhook.com/123
 ```
 
 Listen for requests to a specific webhook:
@@ -31,7 +31,7 @@ Listen for requests to a specific webhook:
 $ usewebhook <webhook-URL>
 ```
 
-Forward requests to a local endpoint:
+Forward incoming requests to localhost:
 
 ```bash
 $ usewebhook <webhook-URL> -f http://localhost:8080/your-endpoint
