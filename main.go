@@ -19,8 +19,10 @@ import (
 	"github.com/spf13/cobra"
 )
 
-const (
-	Version          = "0.1.0"
+// Needs to be var so we can set these via LDFLAGS
+var (
+	// Version is set during release
+	Version          = "dev"
 	APIURL           = "https://usewebhook.com/api/webhooks/"
 	BaseURL          = "https://usewebhook.com"
 	SettingsFilename = ".usewebhook"
