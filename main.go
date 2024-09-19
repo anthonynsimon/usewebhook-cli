@@ -316,9 +316,10 @@ func createRootCommand() *cobra.Command {
 	}
 
 	rootCmd := &cobra.Command{
-		Use:     "usewebhook <webhook-ID or URL>",
+		Use:     "usewebhook <webhook ID or URL>",
 		Short:   "Capture and inspect webhooks from your browser. Replay them on localhost.",
 		Version: Version,
+		Example: "usewebhook  # creates a new webhook\nusewebhook <webhook ID>\nusewebhook <webhook ID> --log-details\nusewebhook <webhook ID> --request-id <request ID>\nusewebhook <webhook ID> --forward-to http://localhost:3000/your-endpoint",
 		Run: func(cmd *cobra.Command, args []string) {
 			runRootCommand(cmd, args, &appConfig)
 		},
