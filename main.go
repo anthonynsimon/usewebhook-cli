@@ -324,7 +324,7 @@ func createRootCommand() *cobra.Command {
 		},
 	}
 
-	rootCmd.Flags().StringVarP(&appConfig.RequestID, "request", "r", "", "the request ID to fetch (optional)")
+	rootCmd.Flags().StringVarP(&appConfig.RequestID, "request-id", "r", "", "the request ID to fetch (optional)")
 	rootCmd.Flags().StringVarP(&appConfig.ForwardTo, "forward-to", "f", "", "forward incoming requests to the provided URL (optional)")
 	rootCmd.Flags().BoolVarP(&appConfig.FullLog, "log-details", "l", false, "log full request details (default: false)")
 
