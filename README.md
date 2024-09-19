@@ -23,8 +23,8 @@ Create a new webhook and start listening:
 ```bash
 $ usewebhook
 
-> Dashboard URL: https://usewebhook.com/?id=123
-> Listening at: https://usewebhook.com/123
+> Dashboard: https://usewebhook.com/?id=123
+> Webhook URL: https://usewebhook.com/123
 ```
 
 Listen for requests to a specific webhook:
@@ -42,7 +42,7 @@ $ usewebhook <webhook-URL> --forward-to http://localhost:8080/your-endpoint
 Replay a specific request from the webhook's history:
 
 ```bash
-$ usewebhook <webhook-URL>  --request-id <request-ID> -f http://localhost:8080/your-endpoint
+$ usewebhook <webhook-URL> --request-id <request-ID> -f http://localhost:8080/your-endpoint
 ```
 
 
