@@ -22,7 +22,7 @@ jobs:
         go-version: '1.22.4'
 
     - name: Build
-      run: VERSION=${{ github.event.release.tag_name }} make release
+      run: VERSION=${{  github.ref_name }} make release
 
     - name: Release
       uses: softprops/action-gh-release@v2
