@@ -1,3 +1,4 @@
+// Package main provides the main functionality for the UseWebhook CLI tool.
 package main
 
 import (
@@ -19,7 +20,7 @@ import (
 	"github.com/spf13/cobra"
 )
 
-// Needs to be var so we can set these via LDFLAGS
+// Global variables that can be set via LDFLAGS during build
 var (
 	// Version is set during release
 	Version          = "dev"
@@ -28,6 +29,7 @@ var (
 	SettingsFilename = ".usewebhook"
 )
 
+// WebhookRequest represents a single webhook request
 type WebhookRequest struct {
 	RequestID string            `json:"request_id"`
 	Timestamp string            `json:"timestamp"`
@@ -38,15 +40,18 @@ type WebhookRequest struct {
 	Body      string            `json:"body"`
 }
 
+// WebhookResponse represents the response from the webhook API
 type WebhookResponse struct {
 	Requests []WebhookRequest `json:"requests"`
 }
 
+// Config represents the user's configuration
 type Config struct {
 	WebhookHistory []string `json:"webhook_history"`
 	LastUsed       string   `json:"last_used"`
 }
 
+// AppConfig holds the configuration for the current run of the application
 type AppConfig struct {
 	FullLog      bool
 	ForwardTo    string
@@ -56,6 +61,7 @@ type AppConfig struct {
 	InitialSleep time.Duration
 }
 
+// fetchWebhookData retrieves webhook data from the API
 func fetchWebhookData(webhookID string, params url.Values) (*WebhookResponse, error) {
 	requestURL := APIURL + webhookID
 	if len(params) > 0 {
@@ -80,6 +86,7 @@ func fetchWebhookData(webhookID string, params url.Values) (*WebhookResponse, er
 	return &webhookResp, nil
 }
 
+// getValueOrEmpty returns a string representation of the value or "(empty)" if it's nil or an empty string
 func getValueOrEmpty(value interface{}) string {
 	if value == nil || value == "" {
 		return "(empty)"
@@ -95,6 +102,7 @@ func getValueOrEmpty(value interface{}) string {
 	}
 }
 
+// logRequest logs the details of a webhook request
 func logRequest(request WebhookRequest, fullLog bool) {
 	if fullLog {
 		color.Yellow("\n=== Start of Request ID: %s ===\n", request.RequestID)
@@ -116,6 +124,7 @@ func logRequest(request WebhookRequest, fullLog bool) {
 	}
 }
 
+// prettyJSON returns a formatted JSON string
 func prettyJSON(v interface{}) string {
 	jsonData, err := json.MarshalIndent(v, "", "    ")
 	if err != nil {
@@ -124,6 +133,7 @@ func prettyJSON(v interface{}) string {
 	return string(jsonData)
 }
 
+// forwardRequest forwards the webhook request to the specified URL
 func forwardRequest(request WebhookRequest, forwardTo string) {
 	client := &http.Client{}
 
@@ -174,7 +184,7 @@ func forwardRequest(request WebhookRequest, forwardTo string) {
 	color.Blue("[FORWARDED] %s%d %s%dms %s%s", color.HiBlackString("status="), resp.StatusCode, color.HiBlackString("time="), duration.Milliseconds(), color.HiBlackString("destination="), reqURL)
 }
 
-// Decode Base64 body and extract the original content-type
+// decodeBase64Body decodes a Base64 encoded body and extracts the original content-type
 func decodeBase64Body(encodedBody string) (string, string, error) {
 	decoded, err := base64.StdEncoding.DecodeString(encodedBody)
 	if err != nil {
@@ -186,6 +196,7 @@ func decodeBase64Body(encodedBody string) (string, string, error) {
 	return string(decoded), originalContentType, nil
 }
 
+// pollWebhook continuously polls the webhook API for new requests
 func pollWebhook(config AppConfig) {
 	lastPollTime := time.Now().UTC()
 
@@ -249,6 +260,7 @@ func extractIdsFromURLOrArgs(webhookURL string) (string, string, error) {
 	return webhookID, requestID, nil
 }
 
+// getConfigFilePath returns the path to the config file
 func getConfigFilePath() string {
 	homeDir, err := os.UserHomeDir()
 	if err != nil {
@@ -258,6 +270,7 @@ func getConfigFilePath() string {
 	return filepath.Join(homeDir, SettingsFilename)
 }
 
+// loadConfig loads the user's configuration from the config file
 func loadConfig() (*Config, error) {
 	configPath := getConfigFilePath()
 	if configPath == "" {
@@ -280,6 +293,7 @@ func loadConfig() (*Config, error) {
 	return &config, nil
 }
 
+// saveConfig saves the user's configuration to the config file
 func saveConfig(config *Config) error {
 	configPath := getConfigFilePath()
 	if configPath == "" {
@@ -294,6 +308,7 @@ func saveConfig(config *Config) error {
 	return os.WriteFile(configPath, data, 0600)
 }
 
+// createRootCommand creates and returns the root command for the CLI
 func createRootCommand() *cobra.Command {
 	appConfig := AppConfig{
 		PollSleep:    3 * time.Second,
@@ -316,6 +331,7 @@ func createRootCommand() *cobra.Command {
 	return rootCmd
 }
 
+// runRootCommand executes the main logic of the CLI
 func runRootCommand(cmd *cobra.Command, args []string, appConfig *AppConfig) {
 	config, err := loadConfig()
 	if err != nil {
@@ -372,6 +388,7 @@ func runRootCommand(cmd *cobra.Command, args []string, appConfig *AppConfig) {
 	pollWebhook(*appConfig)
 }
 
+// contains checks if a slice contains a specific item
 func contains(slice []string, item string) bool {
 	for _, s := range slice {
 		if s == item {
@@ -381,6 +398,7 @@ func contains(slice []string, item string) bool {
 	return false
 }
 
+// main is the entry point of the application
 func main() {
 	rootCmd := createRootCommand()
 	if err := rootCmd.Execute(); err != nil {
