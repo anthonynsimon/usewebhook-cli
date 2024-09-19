@@ -1,13 +1,13 @@
 # UseWebhook CLI
 
-[UseWebhook](https://usewebhook.com) let's you capture and inspect webhooks from your browser. You can forward requests to localhost, or replay them from history.
+[UseWebhook](https://usewebhook.com/) let's you capture and inspect webhooks from your browser. You can forward incoming webhooks to localhost, or replay from history.
 
-- ⚡️ Receive webhooks without deploying a server
+- ⚡️ Receive webhooks without a server
 - 🔍 Inspect and diff incoming requests
-- 👨‍💻 Forward to localhost, or replay from webhook history
+- 👨‍💻 Forward to localhost, or replay from history
 - ✅ Debug webhooks from Stripe, Paddle, Slack, or anywhere else
 
-It's free to use - no sign up required. Just send requests to your unique webhook URL.
+It's free to use - no sign up required. Just send requests to [your unique webhook URL](https://usewebhook.com/).
 
 ## Installation
 
