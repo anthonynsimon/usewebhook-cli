@@ -7,7 +7,7 @@
 - 👨‍💻 Forward to localhost, or replay from history
 - ✅ Debug webhooks from Stripe, Paddle, Slack, or anywhere else
 
-It's free to use - no sign up required. Just send requests to [your unique webhook URL](https://usewebhook.com/).
+It's free to use - no sign up required. Just send HTTP requests to [your unique webhook URL](https://usewebhook.com/).
 
 ## Installation
 
