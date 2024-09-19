@@ -2,6 +2,8 @@
 
 CLI for [UseWebhook.com](https://usewebhook.com): inspect webhooks from your browser and replay locally.
 
+![Inspect and replay webhooks with UseWebhook](https://github.com/user-attachments/assets/f89dc229-0921-47e9-b384-45002f090b6b)
+
 ## Installation
 
 The easiest way to install is using the automated install script:
