@@ -1,6 +1,6 @@
 # UseWebhook CLI
 
-CLI for UseWebhook.com: free tool to inspect and replay webhook requests locally.
+CLI for [UseWebhook](https://usewebhook.com): a free tool to inspect webhooks from your browser and replay locally.
 
 ## Installation
 
@@ -9,7 +9,7 @@ To install UseWebhook CLI, you can either use the automated install script below
 ### Automated install script
 
 ```
-curl -sSL https://github.com/anthonynsimon/usewebhook-cli/blob/main/install.sh | bash
+curl -sSL https://raw.githubusercontent.com/anthonynsimon/usewebhook-cli/main/install.sh | bash
 ```
 
 ## Usage
