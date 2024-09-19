@@ -42,7 +42,7 @@ $ usewebhook <webhook-URL> --forward-to http://localhost:8080/your-endpoint
 Replay a specific request from the webhook's history:
 
 ```bash
-$ usewebhook <webhook-URL>  -r <request-ID> -f http://localhost:8080/your-endpoint
+$ usewebhook <webhook-URL>  --request-id <request-ID> -f http://localhost:8080/your-endpoint
 ```
 
 
@@ -83,6 +83,7 @@ Simply follow the next steps:
 
 > Note: Breaking changes might happen until v1.0.0 is reached
 
+- **0.2.1:** CLI usage improvements
 - **0.2.0:** Consistent CLI argument names
 - **0.1.0:** Initial release
 
