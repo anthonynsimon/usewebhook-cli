@@ -4,7 +4,7 @@ CLI for UseWebhook.com: free tool to inspect and replay webhook requests locally
 
 ## Installation
 
-To install UseWebhook CLI, you can download the binary for your operating system from the [releases page](https://github.com/yourusername/usewebhook-cli/releases) or [build it](#build-from-source) from source.
+To install UseWebhook CLI, you can either use the automated install script below, download the binary for your operating system from the [releases page](https://github.com/yourusername/usewebhook-cli/releases), or [build it](#build-from-source) from source.
 
 ### Automated install script
 
