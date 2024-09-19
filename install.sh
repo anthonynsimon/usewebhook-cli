@@ -26,11 +26,13 @@ release_filename="usewebhook_${platform}.tar.gz"
 download_url="https://github.com/anthonynsimon/usewebhook-cli/releases/latest/download/${release_filename}"
 
 echo "Detected platform: $platform, installing latest release..."
-
 curl -sOL $download_url
+
+echo "Adding binary to ${dest}"
 sudo tar xf $release_filename -C $dest
 rm $release_filename
 
+echo ""
 echo "UseWebhook CLI has been installed successfully!"
 echo ""
 usewebhook --help
