@@ -105,7 +105,7 @@ func logRequest(request WebhookRequest, fullLog bool) {
 		color.Yellow("=== End of Request ID: %s ===\n", request.RequestID)
 	} else {
 		// Log in one line
-		color.Yellow("INCOMING: %s%s %s%s %s%s %s%s",
+		color.Yellow("[INCOMING] %s%s %s%s %s%s %s%s",
 			color.HiBlackString("timestamp="), getValueOrEmpty(request.Timestamp),
 			color.HiBlackString("ip="), getValueOrEmpty(request.IP),
 			color.HiBlackString("method="), getValueOrEmpty(request.Method),
@@ -169,7 +169,7 @@ func forwardRequest(request WebhookRequest, forwardTo string) {
 	defer resp.Body.Close()
 
 	duration := time.Since(start)
-	color.Blue("FORWARDED: %s%s %s%s %s%d %s%dms", color.HiBlackString("request_id="), request.RequestID, color.HiBlackString("to="), reqURL, color.HiBlackString("status="), resp.StatusCode, color.HiBlackString("time="), duration.Milliseconds())
+	color.Blue("[FORWARDED] %s%d %s%dms %s%s", color.HiBlackString("status="), resp.StatusCode, color.HiBlackString("time="), duration.Milliseconds(), color.HiBlackString("destination="), reqURL)
 }
 
 // Decode Base64 body and extract the original content-type
@@ -358,7 +358,7 @@ func runRootCommand(cmd *cobra.Command, args []string, appConfig *AppConfig) {
 	}
 
 	if appConfig.RequestID != "" {
-		color.Green("Single request mode. Retrieving request: %s?id=%s&req=%s\n\n", BaseURL, appConfig.WebhookID, appConfig.RequestID)
+		color.Green("Single request mode. Retrieving webhook=%s request=%s\n\n", appConfig.WebhookID, appConfig.RequestID)
 	} else {
 		color.Green("Dashboard URL: %s?id=%s", BaseURL, appConfig.WebhookID)
 		color.Green("Listening at: %s/%s", BaseURL, appConfig.WebhookID)
