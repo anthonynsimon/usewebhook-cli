@@ -379,8 +379,8 @@ func runRootCommand(cmd *cobra.Command, args []string, appConfig *AppConfig) {
 	if appConfig.RequestID != "" {
 		color.Green("Single request mode. Retrieving webhook=%s request=%s\n\n", appConfig.WebhookID, appConfig.RequestID)
 	} else {
-		color.Green("Dashboard URL: %s?id=%s", BaseURL, appConfig.WebhookID)
-		color.Green("Listening at: %s/%s", BaseURL, appConfig.WebhookID)
+		color.Green("Dashboard: %s/?id=%s", BaseURL, appConfig.WebhookID)
+		color.Green("Webhook URL: %s/%s", BaseURL, appConfig.WebhookID)
 		if appConfig.ForwardTo != "" {
 			color.Green("Forwarding to: %s", appConfig.ForwardTo)
 		}

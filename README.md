@@ -83,6 +83,7 @@ Simply follow the next steps:
 
 > Note: Breaking changes might happen until v1.0.0 is reached
 
+- **0.2.2:** Doc improvements
 - **0.2.1:** CLI usage improvements
 - **0.2.0:** Consistent CLI argument names
 - **0.1.0:** Initial release
