@@ -1,6 +1,6 @@
 # UseWebhook CLI
 
-[UseWebhook](https://usewebhook.com/) is a tool to capture webhooks from your browser or forward to localhost.
+[UseWebhook](https://usewebhook.com/) is a free tool to capture webhooks from your browser, diff requests, and replay on localhost.
 
 - ⚡️ Receive webhooks without a server
 - 🔍 Inspect and diff incoming requests
