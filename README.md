@@ -2,7 +2,7 @@
 
 [UseWebhook](https://usewebhook.com/) is a free tool to capture webhooks from your browser.
 
-- ⚡️ Receive webhooks without a server
+- ⚡️ Test webhooks without a server
 - 🔍 Inspect and diff incoming requests
 - 👨‍💻 Forward to localhost, or replay from history
 - ✅ Debug webhooks from Stripe, Paddle, Slack, or anywhere else
